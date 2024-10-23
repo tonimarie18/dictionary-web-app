@@ -1,0 +1,180 @@
+//Sans Serif
+
+    //400 Regular
+    @font-face {
+        font-display: swap; 
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        src: url('../../fonts/inter/inter-v18-latin-regular.woff2') format('woff2'); 
+    }
+        //700 Bold
+    @font-face {
+        font-display: swap; 
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        src: url('../../fonts/inter/inter-v18-latin-700.woff2') format('woff2');
+    }
+    
+//Serif
+
+    //400 regular
+    @font-face {
+        font-display: swap;
+        font-family: 'Lora';
+        font-style: normal;
+        font-weight: 400;
+        src: url('../../fonts/lora/lora-v35-latin-regular.woff2') format('woff2');
+    }
+    //700 bold
+    @font-face {
+        font-display: swap; 
+        font-family: 'Lora';
+        font-style: normal;
+        font-weight: 700;
+        src: url('../../fonts/lora/lora-v35-latin-700.woff2') format('woff2'); 
+    }
+
+//Mono
+    //400 regular
+   
+    @font-face {
+        font-display: swap; 
+        font-family: 'Inconsolata';
+        font-style: normal;
+        font-weight: 400;
+        src: url('../../fonts/inconsolata/inconsolata-v32-latin-regular.woff2') format('woff2');
+    }
+    /* inconsolata-700 - latin */
+    @font-face {
+        font-display: swap; 
+        font-family: 'Inconsolata';
+        font-style: normal;
+        font-weight: 700;
+        src: url('../../fonts/inconsolata/inconsolata-v32-latin-700.woff2') format('woff2'); 
+    }
+
+
+
+    //@mixins 
+
+
+    //Sans Serif
+
+    @mixin ss-heading-l ($size: 4em, $weight: 700, $line-height:4.8125rem, $font-family:'Inter' ) {
+        font-size: $size;
+        font-weight: $weight;
+        line-height: $line-height;
+        font-family: $font-family ;
+    }
+
+    @mixin ss-heading-m ($size: 2em, $weight: 400, $line-height:1.8125rem,$font-family:'Inter' ) 
+    {
+        font-size: $size;
+        font-weight: $weight;
+        line-height: $line-height;
+        font-family: $font-family ;
+    }
+    @mixin ss-heading-s ($size: 1.25em, $weight: 400, $line-height:1.5rem,$font-family:'Inter' ) 
+    {
+        font-size: $size;
+        font-weight: $weight;
+        line-height: $line-height;
+        font-family: $font-family ;
+    }
+
+    @mixin ss-body-m ($size: 1.125em, $weight: 400, $line-height:1.5rem,$font-family:'Inter' ) {
+        font-size: $size;
+        font-weight: $weight;
+        line-height: $line-height;
+        font-family: $font-family ;
+    }
+
+    @mixin ss-body-s ($size: 0.875em, $weight: 400, $line-height:1.5rem, $font-family:'Inter' ) {
+        font-size: $size;
+        font-weight: $weight;
+        line-height: $line-height;
+        font-family: $font-family ;
+    }
+
+
+    //Serif 
+
+    @mixin sf-heading-l ($size: 4em, $weight: 700, $line-height:4.8125rem, $font-family:'Lora' ) {
+        font-size: $size;
+        font-weight: $weight;
+        line-height: $line-height;
+        font-family: $font-family ;
+    }
+
+    @mixin sf-heading-m ($size: 2em, $weight: 400, $line-height:1.8125rem,$font-family:'Lora' ) 
+    {
+        font-size: $size;
+        font-weight: $weight;
+        line-height: $line-height;
+        font-family: $font-family ;
+    }
+
+    @mixin sf-heading-m ($size: 2em, $weight: 400, $line-height:1.8125rem,$font-family:'Lora' ) 
+    {
+        font-size: $size;
+        font-weight: $weight;
+        line-height: $line-height;
+        font-family: $font-family ;
+    }
+
+    
+    @mixin sf-body-m ($size: 1.125em, $weight: 400, $line-height:1.5rem,$font-family:'Lora' ) {
+        font-size: $size;
+        font-weight: $weight;
+        line-height: $line-height;
+        font-family: $font-family ;
+    }
+
+    @mixin sf-body-s ($size: 0.875em, $weight: 400, $line-height:1.5rem, $font-family:'Lora' ) {
+        font-size: $size;
+        font-weight: $weight;
+        line-height: $line-height;
+        font-family: $font-family ;
+    }
+
+
+    //Mono
+
+    @mixin mn-heading-l ($size: 4em, $weight: 700, $line-height:4.8125rem, $font-family:'Inconsolata' ) {
+        font-size: $size;
+        font-weight: $weight;
+        line-height: $line-height;
+        font-family: $font-family ;
+    }
+
+    @mixin mn-heading-m ($size: 2em, $weight: 400, $line-height:1.8125rem,$font-family:'Inconsolata' ) 
+    {
+        font-size: $size;
+        font-weight: $weight;
+        line-height: $line-height;
+        font-family: $font-family ;
+    }
+
+    @mixin mn-heading-m ($size: 2em, $weight: 400, $line-height:1.8125rem,$font-family:'Inconsolata' ) 
+    {
+        font-size: $size;
+        font-weight: $weight;
+        line-height: $line-height;
+        font-family: $font-family ;
+    }
+
+    @mixin mn-body-m ($size: 1.125em, $weight: 400, $line-height:1.5rem,$font-family:'Inconsolata' ) {
+        font-size: $size;
+        font-weight: $weight;
+        line-height: $line-height;
+        font-family: $font-family ;
+    }
+
+    @mixin mn-body-s ($size: 0.875em, $weight: 400, $line-height:1.5rem, $font-family:'Inconsolata' ) {
+        font-size: $size;
+        font-weight: $weight;
+        line-height: $line-height;
+        font-family: $font-family ;
+    }

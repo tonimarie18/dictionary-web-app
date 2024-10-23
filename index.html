@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/scss/index.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <title>Frontend Mentor | Dictionary web app</title>
+</head>
+<body>
+ <h1>testing</h1>
+<h2>input styles</h2>
+ <div class="inputWrapper">
+ <input type="text" name="test" id="test" placeholder="Search for any word...">
+ <button type="submit"><img src="/assets/images/icon-search.svg" alt="Search Icon" ></button>
+ <span class="errorMessage" id="errorMessage"></span>
+</div>
+
+<h2>button styles</h2>
+<div class="buttons">
+  <button class="playBtn" id="playBtn">
+    <img src="/assets/images/icon-play.svg" alt="" srcset="">
+  </button>
+
+  <div class="toggleWrapper">
+
+  <input type="checkbox" id="switch" class="toggleBtn" /><label for="switch">  <svg xmlns="http://www.w3.org/2000/svg" class="color-change-icon" width="22" height="22" viewBox="0 0 22 22"><path fill="none" stroke="#838383" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M1 10.449a10.544 10.544 0 0 0 19.993 4.686C11.544 15.135 6.858 10.448 6.858 1A10.545 10.545 0 0 0 1 10.449Z"/></svg></label>
+  
+ 
+
+</div>
+</div>
+
+
+
+
+<script>
+    // Select elements
+const inputWrapper = document.querySelector('.inputWrapper');
+const testInput = document.getElementById('test');
+const errorMessage = document.getElementById('errorMessage');
+const button = inputWrapper.querySelector('button');
+
+// Handle button click or form submission
+button.addEventListener('click', function(event) {
+  event.preventDefault(); // Prevent default form submission
+
+  const searchWord = testInput.value.trim(); // Get the value of the input
+
+  if (searchWord === '') {
+    errorMessage.textContent = `Whoops, can't be empty...`;
+    errorMessage.style.display = 'block'; // Show the error message
+    testInput.classList.add('invalid')
+  } else {
+    errorMessage.textContent = ''; // Clear the error message
+    errorMessage.style.display = 'none';
+
+    // Add your API call or other functionality here
+    console.log('Searching for:', searchWord);
+  }
+});
+
+</script>
+</body>
+</html>

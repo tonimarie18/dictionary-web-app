@@ -1,0 +1,5 @@
+@use 'fonts';
+
+h1 {
+    @include fonts.mn-body-s
+}
