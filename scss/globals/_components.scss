@@ -53,7 +53,6 @@ input:focus {
 
 //BUTTON STYLES//
 
-
 button.playBtn {
     background: transparent;
     border: none;
@@ -103,22 +102,39 @@ input:checked + label {
 input:checked + label:after {
 	left: calc(100% - 2px);
 	transform: translateX(-100%);
+    
 }
 
 label:active:after {
 	width: 130px;
 }
 
-svg {
-    fill: currentColor;
-    color: red;
-  }
-    
-  svg:hover {
-    color: blue;
-  }
-
-/* Change the SVG color when the checkbox is checked */
-input:checked ~ .color-change-icon {
-  stroke: var(--purple-100); /* SVG color when toggle is checked */
+.toggleWrapper {
+    display: flex;
 }
+
+
+
+
+/* Style the dropdown items */
+.select-items {
+    position: absolute;
+    display: none;
+    background-color: transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    z-index: 1;
+    width: 50%;
+}
+
+/* Style the dropdown items */
+.select-items div {
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Style the dropdown items on hover */
+.select-items div:hover {
+    color: var(--purple-100);
+}
+

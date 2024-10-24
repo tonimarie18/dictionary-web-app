@@ -53,11 +53,20 @@
   font-weight: 700;
   src: url("../../fonts/inconsolata/inconsolata-v32-latin-700.woff2") format("woff2");
 }
-h1 {
-  font-size: 0.875em;
-  font-weight: 400;
-  line-height: 1.5rem;
-  font-family: "Inconsolata";
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-weight: 500;
+}
+
+body.dark-mode {
+  background-color: var(--black-100);
+  transition: background 150ms ease-in-out;
 }
 
 .inputWrapper {
@@ -169,16 +178,28 @@ label:active:after {
   width: 130px;
 }
 
-svg {
-  fill: currentColor;
-  color: red;
+.toggleWrapper {
+  display: flex;
 }
 
-svg:hover {
-  color: blue;
+/* Style the dropdown items */
+.select-items {
+  position: absolute;
+  display: none;
+  background-color: transparent;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  z-index: 1;
+  width: 50%;
 }
 
-/* Change the SVG color when the checkbox is checked */
-input:checked ~ .color-change-icon {
-  stroke: var(--purple-100); /* SVG color when toggle is checked */
+/* Style the dropdown items */
+.select-items div {
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* Style the dropdown items on hover */
+.select-items div:hover {
+  color: var(--purple-100);
 }/*# sourceMappingURL=index.css.map */

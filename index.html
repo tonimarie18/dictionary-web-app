@@ -24,17 +24,29 @@
 
   <div class="toggleWrapper">
 
-  <input type="checkbox" id="switch" class="toggleBtn" /><label for="switch">  <svg xmlns="http://www.w3.org/2000/svg" class="color-change-icon" width="22" height="22" viewBox="0 0 22 22"><path fill="none" stroke="#838383" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M1 10.449a10.544 10.544 0 0 0 19.993 4.686C11.544 15.135 6.858 10.448 6.858 1A10.545 10.545 0 0 0 1 10.449Z"/></svg></label>
-  
- 
+  <input type="checkbox" id="switch" class="toggleBtn" /><label for="switch"> 
+</label>
+<svg xmlns="http://www.w3.org/2000/svg" class="moon svg" id="themeIcon" width="22" height="22" viewBox="0 0 22 22"><path fill="none" stroke="#838383" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M1 10.449a10.544 10.544 0 0 0 19.993 4.686C11.544 15.135 6.858 10.448 6.858 1A10.545 10.545 0 0 0 1 10.449Z"/></svg>
 
 </div>
 </div>
 
+
+<div class="custom-select">
+  <div class="select-selected">
+      Select a Font <svg xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8"><path fill="none" stroke="#A445ED" stroke-width="1.5" d="m1 1 6 6 6-6"/></svg>
+    </div>
+  <div class="select-items" id="selectItems">
+      <div class="option" id="option" data-value="Sans Serif"  style="font-family: 'Inter', sans-serif;">Sans Serif </div>
+      <div class="option" id="option" data-value="Serif" style="font-family: 'Lora', serif;">Serif</div>
+      <div class="option" id="option" data-value="Mono"  style="font-family: 'Inconsolata', monospace;">Mono</div>
+  </div>
 
 
 
 <script>
+
+  //input empty error
     // Select elements
 const inputWrapper = document.querySelector('.inputWrapper');
 const testInput = document.getElementById('test');
@@ -59,6 +71,92 @@ button.addEventListener('click', function(event) {
     console.log('Searching for:', searchWord);
   }
 });
+
+
+
+//toggle button
+const toggleBtn = document.getElementById('switch');
+  const themeIcon = document.querySelector('svg path'); 
+  const body = document.body;
+
+  toggleBtn.addEventListener('change', () => {
+    if (toggleBtn.checked) {
+      themeIcon.style.stroke = 'purple'; 
+      body.classList.add("dark-mode");
+    } else {
+      themeIcon.style.stroke = '#838383';  
+      body.classList.remove('dark-mode')
+    }
+  });
+
+
+  //jS for changing the font style
+
+  const fonts = {
+    "Sans Serif": "'Inter', sans serif",
+    "Serif" : "'Lora', serif",
+    "Mono": "'Inconsolata', monospace"
+  }
+
+
+
+
+
+
+
+  //
+  const arrowSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8"><path fill="none" stroke="#A445ED" stroke-width="1.5" d="m1 1 6 6 6-6"/></svg>`;
+
+
+  // Get all custom select elements
+let customSelects = document.querySelectorAll('.custom-select');
+
+// Attach click event listeners to each custom select
+customSelects.forEach(function (select) {
+    let selectSelected = select.querySelector('.select-selected');
+    let selectItems = select.querySelector('.select-items');
+    let options = selectItems.querySelectorAll('div');
+
+    // Toggle the dropdown visibility when the select box is clicked
+    selectSelected.addEventListener('click', function () {
+        if (selectItems.style.display === 'block') {
+            selectItems.style.display = 'none';
+        } else {
+            selectItems.style.display = 'block';
+        }
+    });
+
+    // Set the selected option and hide the dropdown when an option is clicked
+    options.forEach(function (option) {
+        option.addEventListener('click', function () {
+          const fontName = option.getAttribute('data-value');
+            selectSelected.textContent = option.textContent + " ";
+            selectItems.style.display = 'none';
+
+            // Clear previous SVGs before adding new
+            while (selectSelected.firstChild) {
+                selectSelected.removeChild(selectSelected.firstChild);
+            }
+
+            // Append the text and the arrow SVG
+            selectSelected.insertAdjacentHTML('beforeend', option.textContent + " " + arrowSVG);
+            selectItems.style.display = 'none';
+
+            changeFont(fonts[fontName])
+        });
+    });
+
+    // Close the dropdown if the user clicks outside of it
+    window.addEventListener('click', function (e) {
+        if (!select.contains(e.target)) {
+            selectItems.style.display = 'none';
+        }
+    });
+});
+
+function changeFont(font) {
+  document.body.style.fontFamily = font;
+}
 
 </script>
 </body>
